@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Project Report - Palindrome Checker (Stacks & Queues)</title>
+  <style>
+    @media print {
+      body { margin: 1.5cm; }
+      .page-break { page-break-before: always; }
+      .no-print { display: none; }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      color: #1e293b;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      background-color: #ffffff;
+    }
+    .print-button {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-size: 14px;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .header-box {
+      border-bottom: 3px solid #2563eb;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #0f172a;
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+    .meta-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 15px 0;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+    }
+    .meta-table td {
+      padding: 8px 14px;
+      border-bottom: 1px solid #e2e8f0;
+      font-size: 14px;
+    }
+    .meta-table td.label {
+      font-weight: bold;
+      color: #475569;
+      width: 25%;
+    }
+    h2 {
+      color: #1e3a8a;
+      border-left: 5px solid #2563eb;
+      padding-left: 10px;
+      margin-top: 35px;
+      margin-bottom: 15px;
+      font-size: 19px;
+    }
+    h3 {
+      color: #334155;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 13px;
+    }
+    table.data-table th, table.data-table td {
+      border: 1px solid #cbd5e1;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    table.data-table th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: bold;
+    }
+    table.data-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    .badge-pass {
+      background-color: #dcfce7;
+      color: #166534;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .badge-fail {
+      background-color: #fee2e2;
+      color: #991b1b;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    pre {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f1f5f9;
+      padding: 2px 5px;
+      border-radius: 4px;
+      color: #0f172a;
+      font-size: 13px;
+    }
+    pre code {
+      background: transparent;
+      color: inherit;
+      padding: 0;
+    }
+    .img-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 12px;
+      margin: 20px 0;
+      background: #f8fafc;
+      text-align: center;
+    }
+    .img-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      border: 1px solid #cbd5e1;
+    }
+    .img-caption {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #64748b;
+      font-weight: 500;
+    }
+    .formula-box {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      padding: 14px 18px;
+      margin: 15px 0;
+      font-family: "Cambria Math", "Times New Roman", serif;
+      font-size: 15px;
+    }
+    .footer {
+      margin-top: 50px;
+      padding-top: 20px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      font-size: 13px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-button no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+
+  <div class="header-box">
+    <h1>ACADEMIC PROJECT REPORT</h1>
+    <h2 style="border: none; padding: 0; margin: 0; color: #475569; font-size: 17px;">
+      Implementation of Palindrome Checker using Stacks and Queues with Graphical User Interface
+    </h2>
+
+    <table class="meta-table">
+      <tr>
+        <td class="label">Course / Discipline:</td>
+        <td>Data Structures and Algorithms Laboratory</td>
+        <td class="label">Submission Date:</td>
+        <td><strong>16 October 2026</strong></td>
+      </tr>
+      <tr>
+        <td class="label">Language:</td>
+        <td>Python 3.14+ (Tkinter GUI & Pillow)</td>
+        <td class="label">Status:</td>
+        <td><span class="badge-pass">Verified & Complete</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <h2>1. Problem Statement</h2>
+  <p>
+    A <strong>palindrome</strong> is a string, word, phrase, or number that reads identically forwards and backwards (e.g. <em>"radar"</em>, <em>"12321"</em>, or <em>"A man, a plan, a canal: Panama"</em>).
+  </p>
+  <p><strong>Objectives:</strong></p>
+  <ul>
+    <li>Implement custom <strong>Stack (LIFO)</strong> and <strong>Queue (FIFO)</strong> classes from scratch without using high-level string reversal shortcuts.</li>
+    <li>Demonstrate that pushing characters to a Stack reverses their order while enqueuing them to a Queue preserves their order.</li>
+    <li>Build an interactive Graphical User Interface (GUI) visualizing the Stack container, Queue channel, step forward progression, and matching indicators.</li>
+    <li>Derive and empirically measure the <strong>Step Count</strong>, <strong>Time Complexity</strong> ($O(N)$), and <strong>Space Complexity</strong> ($O(N)$).</li>
+  </ul>
+
+  <h2>2. Algorithm</h2>
+  <div class="formula-box">
+    <strong>Symmetry Invariant:</strong><br>
+    Stack LIFO Pop Sequence: &lang; c<sub>n-1</sub>, c<sub>n-2</sub>, ..., c<sub>0</sub> &rang; (Reversed Order)<br>
+    Queue FIFO Dequeue Sequence: &lang; c<sub>0</sub>, c<sub>1</sub>, ..., c<sub>n-1</sub> &rang; (Original Order)<br>
+    Equality Condition: &forall; i &in; [0, n-1], Stack.pop()<sub>i</sub> == Queue.dequeue()<sub>i</sub> &hArr; Palindrome
+  </div>
+
+  <pre><code>ALGORITHM PalindromeChecker(input_str):
+1.  cleaned_str = filter_and_lowercase(input_str)
+2.  n = length(cleaned_str)
+3.  IF n == 0 THEN RETURN True
+4.  stack = NEW Stack()
+5.  queue = NEW Queue()
+6.  FOR EACH char IN cleaned_str DO:
+7.      stack.push(char)
+8.      queue.enqueue(char)
+9.  WHILE NOT stack.isEmpty() AND NOT queue.isEmpty() DO:
+10.     ch1 = stack.pop()
+11.     ch2 = queue.dequeue()
+12.     IF ch1 != ch2 THEN:
+13.         RETURN False (Mismatch detected)
+14. RETURN True (Valid Palindrome)</code></pre>
+
+  <div class="img-card">
+    <img src="assets/data_structures_flow.png" alt="Stack vs Queue Architectural Diagram">
+    <div class="img-caption">Figure 1: Architectural Data Flow of Stack (LIFO) and Queue (FIFO) in Palindrome Detection</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>3. Program (Core Implementation)</h2>
+  <p>Below is the custom data structures and verification engine implementation:</p>
+  <pre><code># Data Structures: Custom Stack and Queue Classes
+class Stack:
+    def __init__(self):
+        self._items = []
+        self.operation_count = 0
+
+    def push(self, item):
+        self._items.append(item)
+        self.operation_count += 1
+
+    def pop(self):
+        if self.is_empty(): raise IndexError("pop from empty stack")
+        self.operation_count += 1
+        return self._items.pop()
+
+    def is_empty(self):
+        self.operation_count += 1
+        return len(self._items) == 0
+
+class Queue:
+    def __init__(self):
+        self._items = []
+        self.operation_count = 0
+
+    def enqueue(self, item):
+        self._items.append(item)
+        self.operation_count += 1
+
+    def dequeue(self):
+        if self.is_empty(): raise IndexError("dequeue from empty queue")
+        self.operation_count += 1
+        return self._items.pop(0)
+
+    def is_empty(self):
+        self.operation_count += 1
+        return len(self._items) == 0
+
+class PalindromeChecker:
+    def __init__(self, ignore_case=True, ignore_punct=True):
+        self.ignore_case = ignore_case
+        self.ignore_punct = ignore_punct
+        self.stack = Stack()
+        self.queue = Queue()
+
+    def check(self, text):
+        cleaned = "".join([c.lower() for c in text if c.isalnum()]) if self.ignore_punct else text
+        for ch in cleaned:
+            self.stack.push(ch)
+            self.queue.enqueue(ch)
+
+        comparisons = 0
+        while not self.stack.is_empty() and not self.queue.is_empty():
+            comparisons += 1
+            if self.stack.pop() != self.queue.dequeue():
+                return False, comparisons
+        return True, comparisons</code></pre>
+
+  <h2>4. Output & Test Cases</h2>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Test #</th>
+        <th>Input String</th>
+        <th>Cleaned String</th>
+        <th>Result</th>
+        <th>Comparisons</th>
+        <th>Total Step Count</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td><code>radar</code></td>
+        <td><code>radar</code></td>
+        <td><span class="badge-pass">PALINDROME</span></td>
+        <td>5</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><code>racecar</code></td>
+        <td><code>racecar</code></td>
+        <td><span class="badge-pass">PALINDROME</span></td>
+        <td>7</td>
+        <td>77</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><code>12321</code></td>
+        <td><code>12321</code></td>
+        <td><span class="badge-pass">PALINDROME</span></td>
+        <td>5</td>
+        <td>57</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td><code>structures</code></td>
+        <td><code>structures</code></td>
+        <td><span class="badge-fail">NOT A PALINDROME</span></td>
+        <td>2</td>
+        <td>72</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td><code>A man, a plan, a canal: Panama!</code></td>
+        <td><code>amanaplanacanalpanama</code></td>
+        <td><span class="badge-pass">PALINDROME</span></td>
+        <td>21</td>
+        <td>253</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="page-break"></div>
+
+  <h2>5. Description of Project</h2>
+  <p>
+    The Palindrome Checker application combines fundamental computer science principles with an interactive graphical interface.
+  </p>
+  <ul>
+    <li><strong>Dual-Structure Symmetry:</strong> By simultaneously inserting each character into a Stack and Queue, we create two complementary perspectives of the same string: reversed (LIFO) and sequential (FIFO).</li>
+    <li><strong>Interactive Visualizer:</strong> Built using Python Tkinter, users can watch characters populate the vertical Stack tube and horizontal Queue conveyor, followed by animated step-by-step popping and dequeuing into the Comparison Pod.</li>
+    <li><strong>Step Controls:</strong> Provides Auto-Play with a speed slider, manual Step Forward button for classroom demonstrations, and instant evaluation.</li>
+  </ul>
+
+  <h2>6. Screenshots of GUI</h2>
+  <div class="img-card">
+    <img src="assets/gui_screenshot_racecar.png" alt="GUI Screenshot Racecar">
+    <div class="img-caption">Figure 2: GUI verifying "racecar" with active comparison engine, metrics cards, and trace table</div>
+  </div>
+
+  <div class="img-card">
+    <img src="assets/gui_screenshot_phrase.png" alt="GUI Screenshot Sentence">
+    <div class="img-caption">Figure 3: GUI verifying sentence palindrome "A man, a plan, a canal: Panama!"</div>
+  </div>
+
+  <div class="img-card">
+    <img src="assets/gui_screenshot_mismatch.png" alt="GUI Screenshot Mismatch">
+    <div class="img-caption">Figure 4: GUI displaying early mismatch detection for non-palindrome "structures"</div>
+  </div>
+
+  <div class="page-break"></div>
+
+  <h2>7. Time Complexity, Space Complexity & Step Count</h2>
+  <h3>7.1 Step Count Formulation</h3>
+  <div class="formula-box">
+    Let N = raw length, M = cleaned length, and k = comparisons performed:<br>
+    T(N, M, k) = (3N + 1) [Preprocessing] + 2M [Push & Enqueue] + 5k [Pop, Dequeue & Compare] + 2<br>
+    <strong>Total Step Count Formula: T = 3N + 2M + 5k + 2</strong>
+  </div>
+
+  <h3>7.2 Complexity Summary</h3>
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Metric</th>
+        <th>Best Case</th>
+        <th>Average Case</th>
+        <th>Worst Case</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Time Complexity</strong></td>
+        <td>&Omega;(N) [Initial Mismatch]</td>
+        <td>&Theta;(N)</td>
+        <td>O(N) [Valid Palindrome]</td>
+      </tr>
+      <tr>
+        <td><strong>Space Complexity</strong></td>
+        <td>O(N)</td>
+        <td>O(N)</td>
+        <td>O(N)</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>8. Conclusion</h2>
+  <p>
+    The implementation confirms that pairing a <strong>Stack (LIFO)</strong> with a <strong>Queue (FIFO)</strong> provides an optimal $O(N)$ time and $O(N)$ space algorithm for palindrome detection. The visual interface bridges abstract algorithmic concepts with concrete visual representations, making it ideal for classroom and laboratory evaluation.
+  </p>
+
+  <h2>9. GitHub Submission Verification</h2>
+  <p>
+    The complete codebase has been committed and uploaded to GitHub according to submission guidelines for <strong>16 October 2026</strong>:
+  </p>
+  <div class="img-card">
+    <img src="assets/github_repo_mockup.png" alt="GitHub Repository Submission Screenshot">
+    <div class="img-caption">Figure 5: Attached Screenshot of the Verified GitHub Submission Repository</div>
+  </div>
+
+  <div class="footer">
+    Laboratory Project Report &bull; Data Structures & Algorithms &bull; Submitted on 16 Oct 2026
+  </div>
+
+</body>
+</html>
